@@ -3,7 +3,7 @@
 // ==UserScript==
 // @id             gamer_images_shower
 // @name           Gamer images shower
-// @version        1.0.1
+// @version        1.0.2
 // @namespace      http://blog.k2ds.net/
 // @author         killtw
 // @description    使巴哈姆特哈啦版的文章在未登入階段也能自動載入圖片
