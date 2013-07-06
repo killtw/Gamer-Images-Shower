@@ -8,6 +8,7 @@
 // @author         killtw
 // @description    使巴哈姆特哈啦版的文章在未登入階段也能自動載入圖片
 // @match          http://forum.gamer.com.tw/C.php?*
+// @match          http://forum.gamer.com.tw/Co.php?*
 // @match          http://forum.gamer.com.tw/G2.php?*
 // ==/UserScript==
 */
