@@ -3,16 +3,17 @@
 // ==UserScript==
 // @id             gamer_images_shower
 // @name           Gamer images shower
-// @version        1.0.3
+// @version        1.1.0
 // @namespace      http://blog.k2ds.net/
 // @author         killtw
 // @description    使巴哈姆特哈啦版的文章在未登入階段也能自動載入圖片
 // @match          http://forum.gamer.com.tw/C.php?*
+// @match          http://forum.gamer.com.tw/Co.php?*
 // @match          http://forum.gamer.com.tw/G2.php?*
 // ==/UserScript==
 */
 
-var attach_img;
+var attach_img, attach_youtube;
 
 attach_img = function() {
   var image, _i, _len, _ref;
@@ -24,8 +25,22 @@ attach_img = function() {
   }
 };
 
+attach_youtube = function() {
+  var video, video_id, _i, _len, _ref;
+
+  _ref = document.getElementsByName('attachMovieName');
+  for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+    video = _ref[_i];
+    video_id = video.href.match(/v\/(\w+)/)[1];
+    video.innerHTML = "<iframe width='640' height='360' src='//www.youtube.com/embed/" + video_id + "' frameborder='0' allowfullscreen></iframe>";
+  }
+};
+
 attach_img();
+
+attach_youtube();
 
 window.addEventListener('AutoPagerAfterInsert', function() {
   attach_img();
+  attach_youtube();
 }, false);
