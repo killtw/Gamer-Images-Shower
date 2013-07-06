@@ -17,9 +17,17 @@ attach_img = () ->
     image.innerHTML = "<img src=#{image.id}></img>"
   return
 
+attach_youtube = () ->
+  for video in document.getElementsByName('attachMovieName')
+    video_id = video.href.match(/v\/(\w+)/)[1]
+    video.innerHTML = "<iframe width='640' height='360' src='//www.youtube.com/embed/#{video_id}' frameborder='0' allowfullscreen></iframe>"
+  return
+
 attach_img()
+attach_youtube()
 
 window.addEventListener 'AutoPagerAfterInsert', () ->
   attach_img()
+  attach_youtube()
   return
 , false

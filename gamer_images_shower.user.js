@@ -13,7 +13,7 @@
 // ==/UserScript==
 */
 
-var attach_img;
+var attach_img, attach_youtube;
 
 attach_img = function() {
   var image, _i, _len, _ref;
@@ -25,8 +25,22 @@ attach_img = function() {
   }
 };
 
+attach_youtube = function() {
+  var video, video_id, _i, _len, _ref;
+
+  _ref = document.getElementsByName('attachMovieName');
+  for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+    video = _ref[_i];
+    video_id = video.href.match(/v\/(\w+)/)[1];
+    video.innerHTML = "<iframe width='640' height='360' src='//www.youtube.com/embed/" + video_id + "' frameborder='0' allowfullscreen></iframe>";
+  }
+};
+
 attach_img();
+
+attach_youtube();
 
 window.addEventListener('AutoPagerAfterInsert', function() {
   attach_img();
+  attach_youtube();
 }, false);
