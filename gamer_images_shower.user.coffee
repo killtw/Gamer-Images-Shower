@@ -19,7 +19,7 @@ attach_img = () ->
 
 attach_youtube = () ->
   for video in document.getElementsByName('attachMovieName')
-    video_id = video.href.match(/v\/(\w+)/)[1]
+    video_id = video.href.match(/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/)[7]
     video.innerHTML = "<iframe width='640' height='360' src='//www.youtube.com/embed/#{video_id}' frameborder='0' allowfullscreen></iframe>"
   return
 
