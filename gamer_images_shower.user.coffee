@@ -2,7 +2,7 @@
 // ==UserScript==
 // @id             gamer_images_shower
 // @name           Gamer images shower
-// @version        1.1.0
+// @version        1.1.1
 // @namespace      http://blog.k2ds.net/
 // @author         killtw
 // @description    使巴哈姆特哈啦版的文章在未登入階段也能自動載入圖片
@@ -19,7 +19,7 @@ attach_img = () ->
 
 attach_youtube = () ->
   for video in document.getElementsByName('attachMovieName')
-    video_id = video.href.match(/v\/(\w+)/)[1]
+    video_id = video.href.match(/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/)[7]
     video.innerHTML = "<iframe width='640' height='360' src='//www.youtube.com/embed/#{video_id}' frameborder='0' allowfullscreen></iframe>"
   return
 
